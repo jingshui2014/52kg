@@ -1,10 +1,10 @@
 ---
-title: About Me
+title: 「52 知识图谱」社区
 layout: page
 type: about
 published: true
 ---
-> ### 关于「52 知识图谱」社区
+> ### 关于本社区
 ---
 
 <div align="center"><img width="150" height="150" src="https://www.bobinsun.cn/assets/images/WeChat-logo.jpg"/></div>
