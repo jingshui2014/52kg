@@ -11,6 +11,8 @@ published: true
 
 **建立「知识图谱」学习、交流环境，并且真诚的希望大家推荐&投稿：「文章」、「学习资源」、「KG开源项目」。**
 
+资源分享请联系 Wechat：`dandan-sbb`, 备注：`52KG`.
+
 <div align="center"><img src="https://52kg.bobinsun.cn/assets/images/52kg-logo.png"/></div>
 
 
