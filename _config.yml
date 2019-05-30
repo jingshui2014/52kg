@@ -4,22 +4,22 @@
 # ---------------------------------------------------------------
 
 # Site
-title: 「我爱知识图谱」社区
+title: 「52知识图谱」社区
 subtitle: 52kg-I·Love·KnowledgeGraph
 description: 建立知识图谱爱好者社区
-author: 52kg
+author: 阿拉灯神丁Vicky
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
 port: 5000
 
 # 开启打赏
-reward_comment: 贡献「我爱知识图谱」社区
+reward_comment: 贡献「52知识图谱」社区
 wechatpay: https://www.bobinsun.cn/assets/images/Wechat-pay.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:
+url: 
 baseurl:
 permalink: pretty
 
@@ -300,7 +300,7 @@ sidebar:
 
 
 # Blog rolls
-links_title: 友情链接 欢迎互换
+links_title: 友情链接 欢迎添加
 #links_layout: block
 #links_layout: inline
 links:
@@ -457,7 +457,7 @@ gitalk:
   enable: true
   clientID: 5b2a2486ac80b2c5256e
   clientSecret: e14e40378b56481a8a1e2421ddb0cca931f7c3c0
-  repo: AladengodmanVicky.github.io
+  repo: 52kg
   owner: AladengodmanVicky
   admin: AladengodmanVicky
   distractionFreeMode: true
