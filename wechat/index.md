@@ -1,11 +1,12 @@
 ---
-title: 交流群
+title: 开源项目
 layout: page
 type: about
 published: true
 ---
 
+> ### 欢迎推荐开源项目
 
 ---
 
-<div align="center"><img width="150" height="150" src="https://www.bobinsun.cn/assets/images/WeChat-logo.jpg"/></div>
+
