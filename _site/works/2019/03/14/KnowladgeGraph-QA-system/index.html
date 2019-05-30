@@ -1,0 +1,1850 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+    <link href="https://www.bobinsun.cn/assets/images/fonts-googleapis.css" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="知识图谱,问答系统,医疗诊断,项目实战," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿拉灯神丁Vicky侃AI" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.bobinsun.cn/assets/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="从无到有搭建一个以疾病为中心的一定规模医药领域知识图谱，以该知识图谱完成自动问答与分析服务。该项目立足医药领域，以垂直型医药网站为数据来源，以疾病为核心，构建起一个包含7类规模为4.4万的知识实体，11类规模约30万实体关系的知识图谱。">
+<meta name="keywords" content="知识图谱, 问答系统, 医疗诊断, 项目实战">
+<meta property="og:type" content="article">
+<meta property="og:title" content="医疗知识图谱问答系统探究（一）">
+<meta property="og:url" content="http://localhost:5000/works/2019/03/14/KnowladgeGraph-QA-system/">
+<meta property="og:site_name" content="阿拉灯神丁Vicky侃AI">
+<meta property="og:description" content="从无到有搭建一个以疾病为中心的一定规模医药领域知识图谱，以该知识图谱完成自动问答与分析服务。该项目立足医药领域，以垂直型医药网站为数据来源，以疾病为核心，构建起一个包含7类规模为4.4万的知识实体，11类规模约30万实体关系的知识图谱。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/logo-top.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/001.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/002.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/003.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/004.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/005.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/006.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/007.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/008.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/009.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/010.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/011.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/012.jpg">
+<meta property="og:image" content="https://www.bobinsun.cn/assets/images/logo-bottom.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="医疗知识图谱问答系统探究（一）">
+<meta name="twitter:description" content="从无到有搭建一个以疾病为中心的一定规模医药领域知识图谱，以该知识图谱完成自动问答与分析服务。该项目立足医药领域，以垂直型医药网站为数据来源，以疾病为核心，构建起一个包含7类规模为4.4万的知识实体，11类规模约30万实体关系的知识图谱。">
+<meta name="twitter:image" content="https://www.bobinsun.cn/assets/images/logo-top.jpg">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3828096221540362",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:5000/"/>
+
+
+
+
+
+  <title>医疗知识图谱问答系统探究（一） | 阿拉灯神丁Vicky侃AI</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script async src="https://www.bobinsun.cn/assets/images/busuanzi.pure.mini.js"></script> -->
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿拉灯神丁Vicky侃AI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-wechat">
+          <a href="/wechat/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公众号
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:5000/works/2019/03/14/KnowladgeGraph-QA-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿拉灯神丁Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://www.bobinsun.cn/assets/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿拉灯神丁Vicky侃AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            医疗知识图谱问答系统探究（一）
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T22:34:00+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Works" itemprop="url" rel="index">
+                    <span itemprop="name">Works</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          <!--  -->
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p><img src="https://www.bobinsun.cn/assets/images/logo-top.jpg" alt="Caption" /></p>
+
+<h3 id="1项目背景"><strong>1、项目背景</strong></h3>
+
+<p>为通过项目实战增加对知识图谱的认识，几乎找了所有网上的开源项目及视频实战教程。</p>
+
+<p>果然，功夫不负有心人，找到了中科院软件所刘焕勇老师在github上的开源项目，基于知识图谱的医药领域问答项目QABasedOnMedicaKnowledgeGraph。</p>
+
+<blockquote>
+  <p>项目地址：https://github.com/liuhuanyong/QASystemOnMedicalKG</p>
+</blockquote>
+
+<p><strong>用了两个晚上搭建了两套，Mac版与Windows版，哈哈，运行成功！！！</strong></p>
+
+<p>从无到有搭建一个以疾病为中心的一定规模医药领域知识图谱，以该知识图谱完成自动问答与分析服务。该项目立足医药领域，以垂直型医药网站为数据来源，以疾病为核心，构建起一个包含7类规模为4.4万的知识实体，11类规模约30万实体关系的知识图谱。 本项目将包括以下两部分的内容：</p>
+
+<p>基于垂直网站数据的医药知识图谱构建
+基于医药知识图谱的自动问答</p>
+
+<h3 id="2项目环境"><strong>2、项目环境</strong></h3>
+<h4 id="21-windows系统"><strong>2.1 windows系统</strong></h4>
+
+<p>搭建中间有很多坑，且行且注意。</p>
+
+<p><strong>配置要求：</strong>要求配置neo4j数据库及相应的python依赖包。neo4j数据库用户名密码记住，并修改相应文件。</p>
+
+<p><strong>安装neo4j，neo4j 依赖java jdk 1.8版本以上：</strong></p>
+
+<blockquote>
+  <p>jdk安装方法可参考：windows系统下安装JDK8，下载地址：[https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-windows-x64.exe][1]</p>
+</blockquote>
+
+<blockquote>
+  <p>安装neo4j可参考博文：windows安装neo4j，下载地址：[https://go.neo4j.com/download-thanks.html?edition=community&amp;release=3.4.1&amp;flavour=winzip][2]</p>
+</blockquote>
+
+<blockquote>
+  <p>安装python可参考：Windows环境下安装python2.7</p>
+</blockquote>
+
+<p>根据neo4j 安装时的端口、账户、密码配置设置设置项目配置文件：answer_search.py &amp;  build_medicalgraph.py (github下载项目时根据个人需要也可使用git)</p>
+
+<p><strong>数据导入：</strong>
+python build_medicalgraph.py，导入的数据较多，估计需要几个小时。</p>
+
+<p>python build_medicalgraph.py导入数据之前，需要在该文件main函数中加入：</p>
+
+<p><img src="https://www.bobinsun.cn/assets/images/001.jpg" alt="Caption" />
+<img src="https://www.bobinsun.cn/assets/images/002.jpg" alt="Caption" /></p>
+
+<p><strong>启动问答</strong>：python chat_graph.py</p>
+
+<h3 id="22-mac系统"><strong>2.2 Mac系统</strong></h3>
+<p>mac本身自带python、java jdk环境，可直接安装neo4j图数据库，项目运行步骤与windows基本一样。</p>
+
+<p><strong>问题解答：</strong></p>
+
+<blockquote>
+  <p><strong>安装过程中如遇问题可联系Wechat: dandan-sbb。</strong></p>
+</blockquote>
+
+<h3 id="23-neo4j数据库展示"><strong>2.3 Neo4j数据库展示</strong></h3>
+
+<p><img src="https://www.bobinsun.cn/assets/images/003.jpg" alt="Caption" /></p>
+
+<h3 id="24-问答系统运行效果"><strong>2.4 问答系统运行效果</strong></h3>
+
+<p><img src="https://www.bobinsun.cn/assets/images/004.jpg" alt="Caption" /></p>
+
+<h2 id="3项目介绍"><strong>3、项目介绍</strong></h2>
+<p>该项目的数据来自垂直类医疗网站寻医问药，使用爬虫脚本data_spider.py，以结构化数据为主，构建了以疾病为中心的医疗知识图谱，实体规模4.4万，实体关系规模30万。schema的设计根据所采集的结构化数据生成，对网页的结构化数据进行xpath解析。</p>
+
+<p>项目的数据存储采用Neo4j图数据库，问答系统采用了规则匹配方式完成，数据操作采用neo4j声明的cypher。</p>
+
+<p>项目的不足之处在于疾病的引发原因、预防等以大段文字返回，这块可引入事件抽取，可将原因结构化表示出来。</p>
+
+<p><img src="https://www.bobinsun.cn/assets/images/005.jpg" alt="Caption" /></p>
+
+<h3 id="31-项目目录"><strong>3.1 项目目录</strong></h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40</pre></td><td class="code"><pre class="highlight"><code><span class="o">.</span>
+<span class="err">├──</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="err">├──</span> <span class="n">__pycache__</span>      <span class="err">编译结果保存目录</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">answer_search</span><span class="o">.</span><span class="n">cpython</span><span class="o">-</span><span class="mf">36.</span><span class="n">pyc</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">question_classifier</span><span class="o">.</span><span class="n">cpython</span><span class="o">-</span><span class="mf">36.</span><span class="n">pyc</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">question_parser</span><span class="o">.</span><span class="n">cpython</span><span class="o">-</span><span class="mf">36.</span><span class="n">pyc</span>
+<span class="err">├──</span> <span class="n">answer_search</span><span class="o">.</span><span class="n">py</span>
+<span class="err">├──</span> <span class="n">answer_search</span><span class="o">.</span><span class="n">pyc</span>
+<span class="err">├──</span> <span class="n">build_medicalgraph</span><span class="o">.</span><span class="n">py</span>    <span class="err">知识图谱数据入库脚本</span>
+<span class="err">├──</span> <span class="n">chatbot_graph</span><span class="o">.</span><span class="n">py</span>    <span class="err">问答程序脚本</span>
+<span class="err">├──</span> <span class="n">data</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">medicaln</span><span class="o">.</span><span class="n">json</span>  <span class="err">本项目的全部数据，通过</span><span class="n">build_medicalgraph</span><span class="o">.</span><span class="n">py</span><span class="err">导</span><span class="n">neo4j</span>
+<span class="err">├──</span> <span class="nb">dict</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">check</span><span class="o">.</span><span class="n">txt</span>    <span class="err">诊断检查项目实体库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">deny</span><span class="o">.</span><span class="n">txt</span>      <span class="err">否定词库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">department</span><span class="o">.</span><span class="n">txt</span>  <span class="err">医疗科目实体库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">disease</span><span class="o">.</span><span class="n">txt</span>    <span class="err">疾病实体库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">drug</span><span class="o">.</span><span class="n">txt</span>      <span class="err">药品实体库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">food</span><span class="o">.</span><span class="n">txt</span>      <span class="err">食物实体库</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">producer</span><span class="o">.</span><span class="n">txt</span>    <span class="err">在售药品库</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">symptom</span><span class="o">.</span><span class="n">txt</span>    <span class="err">疾病症状实体库</span>
+<span class="err">├──</span> <span class="n">document</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">chat1</span><span class="o">.</span><span class="n">png</span>    <span class="err">系统运行问答截图</span><span class="mo">01</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">chat2</span><span class="o">.</span><span class="n">png</span>      <span class="err">系统运行问答截图</span><span class="mo">01</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">kg_route</span><span class="o">.</span><span class="n">png</span>    <span class="err">知识图谱构建框架</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">qa_route</span><span class="o">.</span><span class="n">png</span>    <span class="err">问答系统框架图</span>
+<span class="err">├──</span> <span class="n">img</span>    <span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="err">中的所用图片</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">chat1</span><span class="o">.</span><span class="n">png</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">chat2</span><span class="o">.</span><span class="n">png</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">graph_summary</span><span class="o">.</span><span class="n">png</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">kg_route</span><span class="o">.</span><span class="n">png</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">qa_route</span><span class="o">.</span><span class="n">png</span>
+<span class="err">├──</span> <span class="n">prepare_data</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">build_data</span><span class="o">.</span><span class="n">py</span>    <span class="err">数据库操作脚本</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">data_spider</span><span class="o">.</span><span class="n">py</span>    <span class="err">网络资讯采集脚本</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">max_cut</span><span class="o">.</span><span class="n">py</span>      <span class="err">基于词典的最大向前</span><span class="o">/</span><span class="err">向后脚本</span>
+<span class="err">├──</span> <span class="n">question_classifier</span><span class="o">.</span><span class="n">py</span>    <span class="err">问句类型分类脚本</span>
+<span class="err">├──</span> <span class="n">question_classifier</span><span class="o">.</span><span class="n">pyc</span>    
+<span class="err">├──</span> <span class="n">question_parser</span><span class="o">.</span><span class="n">py</span>    <span class="err">问句解析脚本</span>
+<span class="err">├──</span> <span class="n">question_parser</span><span class="o">.</span><span class="n">pyc</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h3 id="32-知识图谱的实体类型"><strong>3.2 知识图谱的实体类型</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">实体类型</th>
+      <th style="text-align: center">中文含义</th>
+      <th style="text-align: center">实体数量</th>
+      <th style="text-align: left">举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Check</td>
+      <td style="text-align: center">诊断检查项目</td>
+      <td style="text-align: center">3,353</td>
+      <td style="text-align: left">支气管造影;关节镜检查</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Department</td>
+      <td style="text-align: center">医疗科目</td>
+      <td style="text-align: center">54</td>
+      <td style="text-align: left">整形美容科;烧伤科</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Disease</td>
+      <td style="text-align: center">疾病</td>
+      <td style="text-align: center">8,807</td>
+      <td style="text-align: left">血栓闭塞性脉管炎;胸降主动脉动脉瘤</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Drug</td>
+      <td style="text-align: center">药品</td>
+      <td style="text-align: center">3,828</td>
+      <td style="text-align: left">京万红痔疮膏;布林佐胺滴眼液</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Food</td>
+      <td style="text-align: center">食物</td>
+      <td style="text-align: center">4,870</td>
+      <td style="text-align: left">番茄冲菜牛肉丸汤;竹笋炖羊肉</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Producer</td>
+      <td style="text-align: center">在售药品</td>
+      <td style="text-align: center">17,201</td>
+      <td style="text-align: left">通药制药青霉素V钾片;青阳醋酸地塞米松片</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Symptom</td>
+      <td style="text-align: center">疾病症状</td>
+      <td style="text-align: center">5,998</td>
+      <td style="text-align: left">乳腺组织肥厚;脑实质深部出血</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Total</td>
+      <td style="text-align: center">总计</td>
+      <td style="text-align: center">44,111</td>
+      <td style="text-align: left">约4.4万实体量级</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="33-知识图谱的实体关系类型"><strong>3.3 知识图谱的实体关系类型</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">实体关系类型</th>
+      <th style="text-align: center">中文含义</th>
+      <th style="text-align: center">关系数量</th>
+      <th style="text-align: left">举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">belongs_to</td>
+      <td style="text-align: center">属于</td>
+      <td style="text-align: center">8,844</td>
+      <td style="text-align: left">&lt;妇科,属于,妇产科&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">common_drug</td>
+      <td style="text-align: center">疾病常用药品</td>
+      <td style="text-align: center">14,649</td>
+      <td style="text-align: left">&lt;阳强,常用,甲磺酸酚妥拉明分散片&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">do_eat</td>
+      <td style="text-align: center">疾病宜吃食物</td>
+      <td style="text-align: center">22,238</td>
+      <td style="text-align: left">&lt;胸椎骨折,宜吃,黑鱼&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">drugs_of</td>
+      <td style="text-align: center">药品在售药品</td>
+      <td style="text-align: center">17,315</td>
+      <td style="text-align: left">&lt;青霉素V钾片,在售,通药制药青霉素V钾片&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">need_check</td>
+      <td style="text-align: center">疾病所需检查</td>
+      <td style="text-align: center">39,422</td>
+      <td style="text-align: left">&lt;单侧肺气肿,所需检查,支气管造影&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">no_eat</td>
+      <td style="text-align: center">疾病忌吃食物</td>
+      <td style="text-align: center">22,247</td>
+      <td style="text-align: left">&lt;唇病,忌吃,杏仁&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">recommand_drug</td>
+      <td style="text-align: center">疾病推荐药品</td>
+      <td style="text-align: center">59,467</td>
+      <td style="text-align: left">&lt;混合痔,推荐用药,京万红痔疮膏&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">recommand_eat</td>
+      <td style="text-align: center">疾病推荐食谱</td>
+      <td style="text-align: center">40,221</td>
+      <td style="text-align: left">&lt;鞘膜积液,推荐食谱,番茄冲菜牛肉丸汤&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">has_symptom</td>
+      <td style="text-align: center">疾病症状</td>
+      <td style="text-align: center">5,998</td>
+      <td style="text-align: left">&lt;早期乳腺癌,疾病症状,乳腺组织肥厚&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">acompany_with</td>
+      <td style="text-align: center">疾病并发疾病</td>
+      <td style="text-align: center">12,029</td>
+      <td style="text-align: left">&lt;下肢交通静脉瓣膜关闭不全,并发疾病,血栓闭塞性脉管炎&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Total</td>
+      <td style="text-align: center">总计</td>
+      <td style="text-align: center">294,149</td>
+      <td style="text-align: left">约30万关系量级</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="34-知识图谱的属性类型"><strong>3.4 知识图谱的属性类型</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">属性类型</th>
+      <th style="text-align: center">中文含义</th>
+      <th style="text-align: center">举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: center">疾病名称</td>
+      <td style="text-align: center">喘息样支气管炎</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">desc</td>
+      <td style="text-align: center">疾病简介</td>
+      <td style="text-align: center">又称哮喘性支气管炎…</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cause</td>
+      <td style="text-align: center">疾病病因</td>
+      <td style="text-align: center">常见的有合胞病毒等…</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prevent</td>
+      <td style="text-align: center">预防措施</td>
+      <td style="text-align: center">注意家族与患儿自身过敏史…</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cure_lasttime</td>
+      <td style="text-align: center">治疗周期</td>
+      <td style="text-align: center">6-12个月</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cure_way</td>
+      <td style="text-align: center">治疗方式</td>
+      <td style="text-align: center">“药物治疗”,”支持性治疗”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cured_prob</td>
+      <td style="text-align: center">治愈概率</td>
+      <td style="text-align: center">95%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">easy_get</td>
+      <td style="text-align: center">疾病易感人群</td>
+      <td style="text-align: center">无特定的人群</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="35-问答项目实现原理"><strong>3.5 问答项目实现原理</strong></h3>
+
+<p><img src="https://www.bobinsun.cn/assets/images/006.jpg" alt="Caption" /></p>
+
+<p>本项目的问答系统完全基于规则匹配实现，通过关键词匹配，对问句进行分类，医疗问题本身属于封闭域类场景，对领域问题进行穷举并分类，然后使用cypher的match去匹配查找neo4j，根据返回数据组装问句回答，最后返回结果。</p>
+
+<blockquote>
+  <p><strong>问句中的关键词匹配：</strong></p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/007.jpg" alt="Caption" /></p>
+
+<blockquote>
+  <p><strong>根据匹配到的关键词分类问句</strong></p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/008.jpg" alt="Caption" /></p>
+
+<blockquote>
+  <p><strong>问句解析</strong></p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/009.jpg" alt="Caption" /></p>
+
+<blockquote>
+  <p><strong>查找相关数据</strong></p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/010.jpg" alt="Caption" /></p>
+
+<blockquote>
+  <p><strong>根据返回的数据组装回答</strong></p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/011.jpg" alt="Caption" /></p>
+
+<h3 id="36-问答系统支持的问答类型"><strong>3.6 问答系统支持的问答类型</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">问句类型</th>
+      <th style="text-align: center">中文含义</th>
+      <th style="text-align: center">问句举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">disease_symptom</td>
+      <td style="text-align: center">疾病症状</td>
+      <td style="text-align: center">乳腺癌的症状有哪些？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">symptom_disease</td>
+      <td style="text-align: center">已知症状找可能疾病</td>
+      <td style="text-align: center">最近老流鼻涕怎么办？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_cause</td>
+      <td style="text-align: center">疾病病因</td>
+      <td style="text-align: center">为什么有的人会失眠？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_acompany</td>
+      <td style="text-align: center">疾病的并发症</td>
+      <td style="text-align: center">失眠有哪些并发症？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_not_food</td>
+      <td style="text-align: center">疾病需要忌口的食物</td>
+      <td style="text-align: center">失眠的人不要吃啥？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_do_food</td>
+      <td style="text-align: center">疾病建议吃什么食物</td>
+      <td style="text-align: center">耳鸣了吃点啥？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">food_not_disease</td>
+      <td style="text-align: center">什么病最好不要吃某事物</td>
+      <td style="text-align: center">哪些人最好不好吃蜂蜜？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">food_do_disease</td>
+      <td style="text-align: center">食物对什么病有好处</td>
+      <td style="text-align: center">鹅肉有什么好处？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_drug</td>
+      <td style="text-align: center">啥病要吃啥药</td>
+      <td style="text-align: center">肝病要吃啥药？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">drug_disease</td>
+      <td style="text-align: center">药品能治啥病</td>
+      <td style="text-align: center">板蓝根颗粒能治啥病？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_check</td>
+      <td style="text-align: center">疾病需要做什么检查</td>
+      <td style="text-align: center">脑膜炎怎么才能查出来？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">check_disease</td>
+      <td style="text-align: center">　检查能查什么病</td>
+      <td style="text-align: center">全血细胞计数能查出啥来？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_prevent</td>
+      <td style="text-align: center">预防措施</td>
+      <td style="text-align: center">怎样才能预防肾虚？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_lasttime</td>
+      <td style="text-align: center">治疗周期</td>
+      <td style="text-align: center">感冒要多久才能好？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_cureway</td>
+      <td style="text-align: center">治疗方式</td>
+      <td style="text-align: center">高血压要怎么治？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_cureprob</td>
+      <td style="text-align: center">治愈概率</td>
+      <td style="text-align: center">白血病能治好吗？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_easyget</td>
+      <td style="text-align: center">疾病易感人群</td>
+      <td style="text-align: center">什么人容易得高血压？</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disease_desc</td>
+      <td style="text-align: center">疾病描述</td>
+      <td style="text-align: center">糖尿病</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="4项目总结"><strong>4、项目总结</strong></h2>
+<p>基于规则的问答系统没有复杂的算法，一般采用模板匹配的方式寻找匹配度最高的答案，回答结果依赖于问句类型、模板语料库的覆盖全面性，面对已知的问题，可以给出合适的答案，对于模板匹配不到的问题或问句类型，经常遇到的有三种回答方式：</p>
+
+<ul>
+  <li>给出一个无厘头的答案；</li>
+  <li>婉转的回答不知道，提示用户换种方式去问；</li>
+  <li>转移话题，回避问题；</li>
+</ul>
+
+<blockquote>
+  <p>例如，本项目中采用了婉转的方式回答不知道：</p>
+</blockquote>
+
+<p><img src="https://www.bobinsun.cn/assets/images/012.jpg" alt="Caption" /></p>
+
+<p>基于知识图谱的问答系统的主要特征是知识图谱，系统依赖一个或多个领域的实体，并基于图谱进行推理或演绎，深度回答用户的问题，基于知识图谱的问答系统更擅长回答知识性问题，与基于模板的聊天机器人有所不同的是它更直接、直观的给用户答案。对于不能回答、或不知道的问题，一般直接返回失败，而不是转移话题避免尴尬。</p>
+
+<p>整个问答系统的优劣依赖于知识图谱中知识的数量与质量。也算是利弊共存吧！知识图谱图谱具有良好的可扩展性，扩展了知识图谱也就是扩展了问答系统的知识库。如果问句在射程范围内，可轻松回答，但如果不幸脱靶，则体验大打折扣。</p>
+
+<p>从知识图谱的角度分析，大多数知识图谱规模不足，主要原因还是数据来源以及技术上知识的抽取与推理困难。</p>
+
+<p><img src="https://www.bobinsun.cn/assets/images/logo-bottom.png" alt="Caption" /></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>放个赞赏码，万一有帅哥美女想给点赏钱呢，哈哈！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://www.bobinsun.cn/assets/images/Wechat-pay.png" alt="阿拉灯神丁Vicky WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1" rel="tag"># 知识图谱</a>
+          
+            
+            <a href="/tag/#/%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F" rel="tag"># 问答系统</a>
+          
+            
+            <a href="/tag/#/%E5%8C%BB%E7%96%97%E8%AF%8A%E6%96%AD" rel="tag"># 医疗诊断</a>
+          
+            
+            <a href="/tag/#/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98" rel="tag"># 项目实战</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/works/2019/03/03/ToB-and-ToC/" rel="prev" title="还是有必要聊聊，To B 与 To C产品的区别">
+                还是有必要聊聊，To B 与 To C产品的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+ <!--  <div  style="text-align: center;">
+  <b><span id="busuanzi_container_page_pv">(｡◕ˇ∀ˇ◕)本文访问量：<span id="busuanzi_value_page_pv"></span> 次</span>
+  </div></b> -->
+  <div class="post-spread">
+    
+      
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "32",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["weixin", "sqq", "tsina", "youdao", "evernotecn", "fbook", "douban"],
+        "viewText": "分享到：",
+        "viewSize": "32"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+    
+  </div>
+</div>
+
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://www.bobinsun.cn/assets/images/blog-logo.jpg"
+               alt="阿拉灯神丁Vicky" />
+          <p class="site-author-name" itemprop="name">阿拉灯神丁Vicky</p>
+           
+              <p class="site-description motion-element" itemprop="description">AI-PM视角 | 智见未来 | 分享AI干货 | 产品哲学 | 个人感悟</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/AladengodmanVicky/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/d35797a7d500" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接 欢迎互换
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                
+                
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.bobinsun.cn/" title="阿拉灯神丁Vicky" target="_blank">阿拉灯神丁Vicky</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#3项目介绍"> <span class="nav-number">1</span> <span class="nav-text">3、项目介绍</strong</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#31-项目目录"> <span class="nav-number">1.1</span> <span class="nav-text">3.1 项目目录</strong</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#32-知识图谱的实体类型"> <span class="nav-number">1.2</span> <span class="nav-text">3.2 知识图谱的实体类型</strong</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#33-知识图谱的实体关系类型"> <span class="nav-number">1.3</span> <span class="nav-text">3.3 知识图谱的实体关系类型</strong</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#34-知识图谱的属性类型"> <span class="nav-number">1.4</span> <span class="nav-text">3.4 知识图谱的属性类型</strong</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#35-问答项目实现原理"> <span class="nav-number">1.5</span> <span class="nav-text">3.5 问答项目实现原理</strong</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#36-问答系统支持的问答类型"> <span class="nav-number">1.6</span> <span class="nav-text">3.6 问答系统支持的问答类型</strong</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#4项目总结"> <span class="nav-number">2</span> <span class="nav-text">4、项目总结</strong</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <b><span class="author" itemprop="copyrightHolder">阿拉灯神丁Vicky</span></b>  <!-- &nbsp;&nbsp;| &nbsp;&nbsp; 
+  <span id="busuanzi_container_site_pv">(✪ω✪)本站总访问量(*^▽^*)：<span id="busuanzi_value_site_pv"></span>次</span> -->
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://jekyllrb.com">Jekyll</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://www.bobinsun.cn/assets/images/gitalk.css">
+<script src="https://www.bobinsun.cn/assets/images/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '5b2a2486ac80b2c5256e',
+        clientSecret: 'e14e40378b56481a8a1e2421ddb0cca931f7c3c0',
+        repo: 'AladengodmanVicky.github.io',
+        owner: 'AladengodmanVicky',
+        admin: ['AladengodmanVicky'],
+        id: '/works/2019/03/14/KnowladgeGraph-QA-system/',
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

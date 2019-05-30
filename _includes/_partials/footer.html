@@ -1,0 +1,46 @@
+<div class="copyright" >
+  {% assign current = site.time | date: '%Y' %}
+  {% assign since = site.since | downcase %}
+  &copy; {% if site.since and since != current %} {{ since }} - {% endif %}
+  <span itemprop="copyrightYear">{{ current }}</span>
+  <span class="with-love">
+    <i class="fa fa-{{ site.authoricon }}"></i>
+  </span>
+  <b><span class="author" itemprop="copyrightHolder">{{ site.author }}</span></b>  &nbsp;&nbsp;| &nbsp;&nbsp;<b>RSS</b>订阅本站&nbsp;&nbsp;
+  <span>
+	<a href="/feed.xml" title="使用RSS订阅本站">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+		</span>
+	</a>
+  </span>
+   &nbsp;&nbsp;| &nbsp;&nbsp;
+  <span>
+    <a href="https://feedburner.google.com/fb/a/mailverify?uri=bobinsun&amp&loc=zh_CN" target="_blank">邮件订阅本站	 </a>
+  </span>
+  &nbsp;&nbsp;| &nbsp;&nbsp;给我发<b>邮件</b>&nbsp;&nbsp;
+  <span>
+    <a href="mailto:bobindandan@gmail.com" title="给我发邮件">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+		</span>
+	</a>
+  </span>
+  <!-- <span id="busuanzi_container_site_pv">(✪ω✪)本站总访问量(*^▽^*)：<span id="busuanzi_value_site_pv"></span>次</span> -->
+</div>
+
+{% if site.copyright %}
+<div class="powered-by">
+  {{ __.footer.powered | replace: '%s', '<a class="theme-link" href="https://jekyllrb.com">Jekyll</a>') }}
+</div>
+
+<div class="theme-info">
+  {{ __.footer.theme }} -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.{{ site.scheme }}
+  </a>
+</div>
+{% endif %}
+

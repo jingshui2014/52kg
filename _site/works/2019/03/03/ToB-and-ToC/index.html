@@ -1,0 +1,1473 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+    <link href="https://www.bobinsun.cn/assets/images/fonts-googleapis.css" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PM,产品思维," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿拉灯神丁Vicky侃AI" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.bobinsun.cn/assets/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="To B 与 To C产品的区别的在哪? 对于这问题，做为PM，我确实缺少对这方面系统的分析与理解，而且缺少条理性；知道是知道，但并不代表明白、不代表可清楚的说出个子丑寅卯，所以当时的回答也就是“goushi一坨”。趁周末，仔细琢磨下。">
+<meta name="keywords" content="PM, 产品思维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="还是有必要聊聊，To B 与 To C产品的区别">
+<meta property="og:url" content="http://localhost:5000/works/2019/03/03/ToB-and-ToC/">
+<meta property="og:site_name" content="阿拉灯神丁Vicky侃AI">
+<meta property="og:description" content="To B 与 To C产品的区别的在哪? 对于这问题，做为PM，我确实缺少对这方面系统的分析与理解，而且缺少条理性；知道是知道，但并不代表明白、不代表可清楚的说出个子丑寅卯，所以当时的回答也就是“goushi一坨”。趁周末，仔细琢磨下。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.postimg.cc/CKs3ysL4/111.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="还是有必要聊聊，To B 与 To C产品的区别">
+<meta name="twitter:description" content="To B 与 To C产品的区别的在哪? 对于这问题，做为PM，我确实缺少对这方面系统的分析与理解，而且缺少条理性；知道是知道，但并不代表明白、不代表可清楚的说出个子丑寅卯，所以当时的回答也就是“goushi一坨”。趁周末，仔细琢磨下。">
+<meta name="twitter:image" content="https://i.postimg.cc/CKs3ysL4/111.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3828096221540362",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:5000/"/>
+
+
+
+
+
+  <title>还是有必要聊聊，To B 与 To C产品的区别 | 阿拉灯神丁Vicky侃AI</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script async src="https://www.bobinsun.cn/assets/images/busuanzi.pure.mini.js"></script> -->
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿拉灯神丁Vicky侃AI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-wechat">
+          <a href="/wechat/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公众号
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:5000/works/2019/03/03/ToB-and-ToC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿拉灯神丁Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://www.bobinsun.cn/assets/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿拉灯神丁Vicky侃AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            还是有必要聊聊，To B 与 To C产品的区别
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T23:34:00+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Works" itemprop="url" rel="index">
+                    <span itemprop="name">Works</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          <!--  -->
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <blockquote>
+  <p>昨天，在与北京知识图谱@吴刚老师的聊天中，被问到：“ To B 与 To C产品的区别的在哪? ”。</p>
+</blockquote>
+
+<p>对于这问题，做为PM，我确实缺少对这方面系统的分析与理解，而且缺少条理性；知道是知道，但并不代表明白、不代表可清楚的说出个子丑寅卯，所以当时的回答也就是“goushi一坨”。趁周末，仔细琢磨下。</p>
+
+<h2 id="1什么是to-b-与to-b产品">1、什么是To B 与To B产品</h2>
+
+<p>To B，也称『2B』，顾名思义 To Business，也就是面向企业客户，为企业客户提供产品或服务。</p>
+
+<p>To C，也称『2C』，To Consumer，即面向终端用户，直接为广大消费者与用户提供产品或服务。</p>
+
+<h2 id="2目标对象的诉求与特点">2、目标对象的诉求与特点</h2>
+
+<p>To B 面向企业客户，客户是理性的，这类对象有清晰、明确的需求，而这些需求为解决企业中真实存在的问题，或者配合企业战略而出现，产品经理需将这些需求转化为产品，以满足企业客户的目标。</p>
+
+<p><strong>客户采购的特点主要有：</strong></p>
+
+<ul>
+  <li>
+    <p>采购金额大，重复消费可能性大；</p>
+  </li>
+  <li>
+    <p>项目进展周期长，对接过程复杂；</p>
+  </li>
+  <li>
+    <p>采购对象多，参与决策者复杂；</p>
+  </li>
+  <li>
+    <p>销售方式一对一，强化客户关系很重要；</p>
+  </li>
+  <li>
+    <p>要求服务专业化；</p>
+  </li>
+</ul>
+
+<p>客户会对服务者从各方面进行理性的选择与价值判断。此处不做过多细节的讨论。</p>
+
+<p>To C面向终端用户，用户是感性的，用不用或买不买该产品，凭的是个人的喜好和欲望的冲动。从心理学上讲，人的欲望是无尽的。个人认为：人的欲望是推动社会发展的根本因素。这类需求需要产品经理去挖掘，去创造，去迎合用户的心理诉求。</p>
+
+<p><strong>普通消费者（用户）的购买或使用决策因素有：</strong></p>
+
+<ul>
+  <li>
+    <p>个人因素：包括年龄、性别、收入、受教育程度、家庭情况、婚姻情况、职业等；</p>
+  </li>
+  <li>
+    <p>社会因素：包括文化观念、种族、社会阶层、传统习俗、参考群体、家庭影响等；</p>
+  </li>
+  <li>
+    <p>心理因素：包括动机、认知、学习、态度等；</p>
+  </li>
+</ul>
+
+<p>因此，To B产品更要侧重关注产业链及公司的发展状况与所处的行业位值，深入甲方、了解甲方背后真正的诉求，关注产品的信息化、结构化与流程化，让产品高效完美的解决甲方的问题，实现产品的价值，对于产品经理来说需要强大的思考、逻辑分析与问题的描述能力，以及项目管理能力，把握公司资源，在有效的时间节点内让产品落地。</p>
+
+<p>而To C产品需上可洞观行业市场，下可懂调研、做访谈、分析。对需求和使用场景敏感，做好功能设计，熟悉用户体验、懂审美。</p>
+
+<p>两种产品对于PM都需要能沟通、擅协作，懂管理，熟悉运营与营销。</p>
+
+<h2 id="3产品的特点">3、产品的特点</h2>
+
+<p>两种产品最大的特点就是To B注重更产品价值，To C则偏向用户体验。下面从三个方面进行细节讨论：</p>
+
+<p><strong>a、设计逻辑</strong></p>
+
+<p>基于To B产品的特点，在流程设计时更注重逻辑完整、流程高效，在构建设计时，要做到胸有成竹，梳理完成后与用户做明确确认。</p>
+
+<p>对于To C产品要做到让用户“爽”，让用户开心，以小白角度站在用户立场去分析、思考，To C产品要逻辑简单。</p>
+
+<p><strong>b、学习成本</strong></p>
+
+<p>To B产品确实很难，一般属于定制化开发，成本大、难迁移，避免不了功能的堆砌，比如阿里云，对于企业或专业用户尚且需要操作手册或说明，学习成本过高，任务流程多样化、分岔口较多，需要大量的人工客服导致成本过高，虽然已经配备了智能客服，但是客户的问题千变万化难以把控。</p>
+
+<p>很多To B 产品需要进行人员培训与讲解、售前、售后、实施等等，一系列动作下来，客户才勉强可以使用。</p>
+
+<p>To C不需要培训与使用说明即可使用，目标是上手即用，最好是没有（当然很难），做到避免用户流失，目标明确、容易靠拢。</p>
+
+<p><strong>c、业务理解</strong></p>
+
+<p>做To B产品需要深入理解客户所在行业，企业内部组织架构、企业服务流程，理解和实施客户需求，帮助企业构建系统，将线下流程线上化，强调构建一个业务生态系统，强调从客户想法或目标提炼需求，配合企业客户战略。</p>
+
+<p>To C与To B不同的是PM本身就是用户，例如：抖音、微信、快手，侧重理解用户人群的心理模型、工作状态、所在场景、喜怒哀乐，深入到用户群体中去，从用户群中来，对用户群做跟踪访谈、用户深访、任务流程记录、用户痛点、痒点、兴奋点记录。带给用户最真实的感受、体验。</p>
+
+<h2 id="4产品的商业模式">4、产品的商业模式</h2>
+
+<p><strong>a、收费与免费</strong></p>
+
+<p>To B 产品流程复杂需要售前、开发、部署、实施、使用，产生价值的周期长，如阿里云，需要配备各种团队，对内的（开发、运维、产品等）、对外的（售前、售后、客服等），每台服务器、每个域名、每种技术服务，看起来成千上万很贵，但是为企业节省了各种人类、机器的购买、提供安全、稳定的服务，所以企业还是愿意为其付费的，提高了企业的投入产出比，属于物有所值，还有ERP、OA等系统，一旦实施成功，为企业带来库存、生产、执行流程方面的提升其实百万、千万的价值。</p>
+
+<p>To C产品很容易体现，举办营销、打折等活动即可让用户使用或购买、如电商的双11、打车或外卖的补贴大战，进行口碑、品牌营销。商业模式较简单，衡量参数大多是：流量、下单率、广告营收等。</p>
+
+<p><strong>b、个性化与大众化</strong></p>
+
+<p>To B产品针对不同客户、不同行业，需要做定制开发，业务模式、商业模式创新非常重要，需深入理解与创新。</p>
+
+<p>To C产品能打入市场主要满足了某一类用户的某类需求、产品对外公开，抄袭严重，功能都差不多，只要能被市场接纳，后面就会出现大批同类产品，用户获取与流失同样快速。</p>
+
+<p><strong>c、销售与营销</strong></p>
+
+<p>To B的市场小，目标客户少，需要销售单点攻破，购买者是老板、领导或业务直接负责人，款项业务需要漫长的流程，营销难统一进行目标客户穿透，通常进行电话销售、登门拜访，需专业人员漫长的客户驱动，也就是地推。</p>
+
+<p>To C面向广大终端用户，基数大、覆盖广，百万级、千万级、甚至亿级爆红全国、全球，靠营销活动、广告计划，进行大批量炒作、运营、跟风，总之通用的成功衡量标准是：下载量、PV、UV、转发等等。</p>
+
+<p><strong>d、产品生命周期</strong></p>
+
+<p>To B产品面向专业人士，门槛高，入行难，执行流程漫长，客户更换成本高，但之后的运维、升级都是稳赚收益，功能设计严谨，包括：角色、权限、安全，部门协作，模块衔接。</p>
+
+<p>就目前而言，To B较To C而言发展还是较缓慢，缺少竞品、缺少成熟的方法论、且大多属于公司机密、产品设计属于封闭式，业务、功能、技术等方面无法聚焦，加上设计难度高，体验相对较差。</p>
+
+<p>To C产品时间短、任务重、侧重市场占有率，用户群基数，需要快速迭代开发，保证功能与设计领先，一般晚那么几个月上线，如果没有满足用户惊喜性需求，一般就没什么突破了，竞争惨烈，需密切关注市场动态，大多产品年前还很火，年后就死掉了，补贴大战比比皆是。 尼尔森大数据：十个新品九个死！</p>
+
+<h2 id="5结束语">5、结束语</h2>
+
+<p>两种类型的产品，无论哪个都需关注用户痛点、用户需求，更需要关注到底什么是用户痛点？什么是用户需求，我们是为什么样的用户、客户解决什么样的需求？前老板说过：不能一直埋头干，要是不是抬起头看一看前方，有没有走偏，有没有南辕北辙，有时候你会发现你做着做着，产品倒是做出来了，行业就没了。</p>
+
+<p>社会的发展总是日新月异，做一个好产品哪有那么简单，商场如战场，天时、地理、人和缺一不可，套用《安娜卡列尼娜》中的一句话：成功的产品总是相同的，失败的产品各有各的原因。</p>
+
+<p><img src="https://i.postimg.cc/CKs3ysL4/111.png" alt="公众号二维码" /></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>放个赞赏码，万一有帅哥美女想给点赏钱呢，哈哈！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://www.bobinsun.cn/assets/images/Wechat-pay.png" alt="阿拉灯神丁Vicky WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/PM" rel="tag"># PM</a>
+          
+            
+            <a href="/tag/#/%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4" rel="tag"># 产品思维</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/works/2019/03/14/KnowladgeGraph-QA-system/" rel="next" title="医疗知识图谱问答系统探究（一）">
+                <i class="fa fa-chevron-left"></i> 医疗知识图谱问答系统探究（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/works/2018/12/10/Development-Knowledge/" rel="prev" title="知识图谱发展的难点与构建行业知识图谱的重要性">
+                知识图谱发展的难点与构建行业知识图谱的重要性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+ <!--  <div  style="text-align: center;">
+  <b><span id="busuanzi_container_page_pv">(｡◕ˇ∀ˇ◕)本文访问量：<span id="busuanzi_value_page_pv"></span> 次</span>
+  </div></b> -->
+  <div class="post-spread">
+    
+      
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "32",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["weixin", "sqq", "tsina", "youdao", "evernotecn", "fbook", "douban"],
+        "viewText": "分享到：",
+        "viewSize": "32"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+    
+  </div>
+</div>
+
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://www.bobinsun.cn/assets/images/blog-logo.jpg"
+               alt="阿拉灯神丁Vicky" />
+          <p class="site-author-name" itemprop="name">阿拉灯神丁Vicky</p>
+           
+              <p class="site-description motion-element" itemprop="description">AI-PM视角 | 智见未来 | 分享AI干货 | 产品哲学 | 个人感悟</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/AladengodmanVicky/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/d35797a7d500" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接 欢迎互换
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                
+                
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.bobinsun.cn/" title="阿拉灯神丁Vicky" target="_blank">阿拉灯神丁Vicky</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#1什么是to-b-与to-b产品"> <span class="nav-number">1</span> <span class="nav-text">1、什么是To B 与To B产品</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#2目标对象的诉求与特点"> <span class="nav-number">2</span> <span class="nav-text">2、目标对象的诉求与特点</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#3产品的特点"> <span class="nav-number">3</span> <span class="nav-text">3、产品的特点</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#4产品的商业模式"> <span class="nav-number">4</span> <span class="nav-text">4、产品的商业模式</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#5结束语"> <span class="nav-number">5</span> <span class="nav-text">5、结束语</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <b><span class="author" itemprop="copyrightHolder">阿拉灯神丁Vicky</span></b>  <!-- &nbsp;&nbsp;| &nbsp;&nbsp; 
+  <span id="busuanzi_container_site_pv">(✪ω✪)本站总访问量(*^▽^*)：<span id="busuanzi_value_site_pv"></span>次</span> -->
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://jekyllrb.com">Jekyll</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://www.bobinsun.cn/assets/images/gitalk.css">
+<script src="https://www.bobinsun.cn/assets/images/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '5b2a2486ac80b2c5256e',
+        clientSecret: 'e14e40378b56481a8a1e2421ddb0cca931f7c3c0',
+        repo: 'AladengodmanVicky.github.io',
+        owner: 'AladengodmanVicky',
+        admin: ['AladengodmanVicky'],
+        id: '/works/2019/03/03/ToB-and-ToC/',
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
