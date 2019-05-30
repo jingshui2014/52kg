@@ -4,7 +4,7 @@ layout: page
 type: about
 published: true
 ---
-> ### 关于本社区
+> ### 关于「本社区」
 ---
 
 <div align="center"><img src="https://52kg.bobinsun.cn/assets/images/52kg-logo.png"/></div>
