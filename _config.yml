@@ -455,8 +455,8 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID: 5b2a2486ac80b2c5256e
-  clientSecret: e14e40378b56481a8a1e2421ddb0cca931f7c3c0
+  clientID: 789ac1d6b33260f68f3a
+  clientSecret: 371d551cd2529661e2a394afc9be7cd56e8b0f7d
   repo: 52kg
   owner: AladengodmanVicky
   admin: AladengodmanVicky
